@@ -1,0 +1,16 @@
+1 start program with run
+2 ask name
+3 ask location
+4 ask first ingredient
+-take answer of ingredient and use get_data to find
+-store in array
+-convert to ounces
+-ask for measurement
+-convert to ounces
+-divide convert api data by user and multiply all "value" values by said number
+5 use the attr_id to allow user to recieve the necessary data 
+
+
+
+
+

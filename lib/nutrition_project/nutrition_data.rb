@@ -1,0 +1,3 @@
+class NutritionData
+    
+end
