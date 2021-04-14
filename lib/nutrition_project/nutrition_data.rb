@@ -1,3 +1,0 @@
-class NutritionData
-    
-end

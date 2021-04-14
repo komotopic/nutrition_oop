@@ -1,9 +1,10 @@
 class NutritionProject::CLI
   
+
     def program 
         intro
         data_entry
-        nutrients
+        
     end
     
     def intro
@@ -14,31 +15,20 @@ class NutritionProject::CLI
         location = gets
     end
      
-    @@data = {}
+    @@data = []
     def data_entry
         puts "Enter the ingredient"
-        ingredient = gets
-        puts "Enter quanity"
-        quanity = gets
-        
-       
-        
-        # puts "You can enter your recipe here when finished enter **"
-        # until data_recieved == "**"
-             
-        #     #    puts "Please enter ingredient number #{counter}"
-        #     #    ingredient_name = gets.chomp
-        #     #    puts "How much of #{data_name}?"
-        #     #    ingredient_amount = gets.chomp
-        #     #    counter += 1
-        #     # make key/value out of name/amount if new otherwise add together
-        #     all_data << data_got
-        #     data_recieved = data_got
-            
-         
-        #     end
-        
-        
+        ingredient = gets.chomp
+        @@data << ingredient
+        # binding.pry
+        puts "Enter quanity (use each for a single piece of foor ex. 1 each)"
+        quanity = gets.chomp
+        @@data << quanity
+        binding.pry
+    end
+
+    def self.data
+        @@data
     end
 
     def nutrients
