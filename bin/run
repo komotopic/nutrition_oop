@@ -4,11 +4,7 @@ require 'dotenv/load'
 
 require_relative '../lib/environment.rb'
 
-# NutritionProject::CLI.new.program
-puts ENV["MY_KEY"]
-puts ENV["MY_ID"]
+
 NutritionProject::CLI.new.program
- API.get_data
-#  API.for_conversion
-# call api in cli
+
  
