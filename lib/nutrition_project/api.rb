@@ -1,9 +1,9 @@
 class API
 
-
+    
   
     def self.get_data
-        url = URI("https://trackapi.nutritionix.com/v2/search/instant?detailed=true&query=#{NutritionProject::CLI.data[0]}")
+        url = URI("https://trackapi.nutritionix.com/v2/search/instant?detailed=true&query=#{NutritionProject::CLI.data}")
         
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -14,17 +14,17 @@ class API
         request["x-app-key"] = ENV["MY_KEY"]
         request["x-app-id"] = ENV["MY_ID"]
         response = http.request(request)
-        @array = JSON.parse(response.read_body)["common"]
-         binding.pry
-        
+        array = JSON.parse(response.read_body)["common"]
+        array
     end
-    @@amount = []
+
+     []
     
-    def self.for_conversion
-        @@amount << @array.dig(0, "serving_qty").to_i
-       @@amount <<  @array.dig(0, "serving_unit")
-       binding.pry
-    end
+    # def self.for_conversion
+    #     @@amount << @array.dig(0, "serving_qty").to_i
+    #    @@amount <<  @array.dig(0, "serving_unit")
+    #    binding.pry
+    # end
 
 
  end
