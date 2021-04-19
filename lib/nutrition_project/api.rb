@@ -16,9 +16,12 @@ class API
         response = http.request(request)
         array = JSON.parse(response.read_body)["common"]
         array
+        
     end
 
-     []
+    []
+
+    
     
     # def self.for_conversion
     #     @@amount << @array.dig(0, "serving_qty").to_i

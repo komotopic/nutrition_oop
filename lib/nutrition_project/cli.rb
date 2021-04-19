@@ -14,9 +14,12 @@ class NutritionProject::CLI
         puts "Enter the ingredient you would like info on:"
         @ingredient = gets.chomp.downcase
         @@data << @ingredient
+        API.get_data
         @item = Items.create(@ingredient)
         puts "Please wait while I gather the data"
-        API.get_data
+        
+        
+        
         
     end
      
@@ -27,7 +30,7 @@ class NutritionProject::CLI
         puts "1. Serving size"
         puts "2. A picture"
         puts "3. Nutritional data"
-        puts "4. Nutrient calculator"
+        # puts "4. Nutrient calculator"
         puts "or type exit"
         first_user_choice = gets.chomp
         if first_user_choice == "1"
@@ -39,13 +42,15 @@ class NutritionProject::CLI
             puts ["#{@item.photo.fetch("thumb")}", "", ""]
             second_menu
         elsif first_user_choice == "3"
+            puts "Please wait loading..."
+           nutrients= Nutrients.create
             puts "Here is the nutritional data for #{@ingredient}"
             
-            puts "#{@item.nutrients}"
+            nutrients.nutrients.each{|nut| puts nut}
             second_menu
         elsif first_user_choice == "exit"
-        elsif first_user_choice == "4"
-            calculator
+        # elsif first_user_choice == "4"
+        #     calculator
         else
             puts "I don't understand try entering 1, 2, 3, or exit"
             first_menu
