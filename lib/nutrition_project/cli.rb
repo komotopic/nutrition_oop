@@ -54,6 +54,7 @@ class NutritionProject::CLI
         elsif first_user_choice == "4"
           
                Calculator.new
+               second_menu
         else
             puts "I don't understand try entering 1, 2, 3, or exit"
             first_menu
