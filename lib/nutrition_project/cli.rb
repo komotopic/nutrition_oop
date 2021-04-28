@@ -30,7 +30,7 @@ class NutritionProject::CLI
         puts "1. Serving size"
         puts "2. A picture"
         puts "3. Nutritional data"
-        # puts "4. Nutrient calculator"
+        puts "4. Nutrient calculator"
         puts "or type exit"
         first_user_choice = gets.chomp
         if first_user_choice == "1"
@@ -39,7 +39,9 @@ class NutritionProject::CLI
             second_menu
         elsif first_user_choice == "2"
             puts ["","Here is a link to a picture:"]
-            puts ["#{@item.photo.fetch("thumb")}", "", ""]
+            link = @item.photo.fetch("thumb")
+           
+            puts ["#{link}", "", ""]
             second_menu
         elsif first_user_choice == "3"
             puts "Please wait loading..."
@@ -49,8 +51,9 @@ class NutritionProject::CLI
             nutrients.nutrients.each{|nut| puts nut}
             second_menu
         elsif first_user_choice == "exit"
-        # elsif first_user_choice == "4"
-        #     calculator
+        elsif first_user_choice == "4"
+          
+               Calculator.new
         else
             puts "I don't understand try entering 1, 2, 3, or exit"
             first_menu
@@ -74,7 +77,6 @@ class NutritionProject::CLI
             second_menu
         end
     end
-    
 
     def self.data
         @@data
@@ -82,7 +84,8 @@ class NutritionProject::CLI
 
     def clear
         @@data.clear
+      
     end
 
-#     
+    
  end

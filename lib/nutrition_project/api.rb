@@ -19,15 +19,7 @@ class API
         
     end
 
-    []
+    
 
     
-    
-    # def self.for_conversion
-    #     @@amount << @array.dig(0, "serving_qty").to_i
-    #    @@amount <<  @array.dig(0, "serving_unit")
-    #    binding.pry
-    # end
-
-
- end
+end

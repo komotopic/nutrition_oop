@@ -1,10 +1,11 @@
 class Nutrients
-    attr_accessor :nutrient_formatted ,:nutrients, :items
+    attr_accessor :nutrients, :items
 
+    
     def initialize
         @nutrients = []
         nutrient_find
-        
+      
     end
     
     def self.create
@@ -56,7 +57,15 @@ class Nutrients
             nutrient_hash.map do |key, value|
                 nutrient_array.map do |hash|
                     if hash.fetch("attr_id") == value
-                        @nutrients << "#{key} = #{hash.fetch("value")}"
+                        if value == 208
+                            @nutrients << "#{key} = #{hash.fetch("value")} kcal"
+                        elsif [205, 606, 204, 291, 203, 269, 539, 645, 646].include?(value)
+                            @nutrients << "#{key} = #{hash.fetch("value")} g"
+                        elsif [301, 601, 303, 306, 307, 312, 406, 410, 405, 404, 415, 401, 309]
+                            @nutrients << "#{key} = #{hash.fetch("value")} mg"
+                        elsif [325, 326]
+                            @nutrients << "#{key} = #{hash.fetch("value")} Âµg"
+                        end
                     end
                 end
             end
