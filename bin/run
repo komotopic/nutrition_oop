@@ -2,9 +2,9 @@
 require 'dotenv/load'
 
 
-require_relative '../lib/environment.rb'
+require_relative '../lib/enviroment.rb'
 
 
-NutritionProject::CLI.new.program
+NutritionProject::CLI.new.intro
 
  
