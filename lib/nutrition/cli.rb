@@ -73,6 +73,8 @@ class NutritionProject::CLI
         puts ""
     end
     
-
+    def goodbye
+        puts "Thank you for using the food search engine."
+    end
 
 end
